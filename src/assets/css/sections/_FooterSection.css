@@ -1,0 +1,23 @@
+footer {
+    background-color: var(--color-extralight-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+    footer .socialmedia {
+        margin-bottom: 25px;
+    }
+        footer .socialmedia a {
+            font-size: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            color: var(--color-dark);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+            footer .socialmedia a:hover {
+                color: var(--color-theme);
+                text-decoration: none;
+            }

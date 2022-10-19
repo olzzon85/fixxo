@@ -1,0 +1,11 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,800&family=Roboto:wght@400;500;700&display=swap');
+
+/* Section */
+@import "../src/assets/css/sections/_MainMenuSection.css";
+@import "../src/assets/css/sections/_FooterSection.css";
+
+/* Cores */
+@import "../src/assets/css/cores/_Variables.css";
+@import "../src/assets/css/cores/_base.css";
+@import "../src/assets/css/cores/_colors.css";
