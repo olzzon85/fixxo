@@ -1,0 +1,33 @@
+.btn-theme {
+    background-color: #FF7373;
+    color: var(--color-white);
+    position: relative;
+    text-align: center;
+    padding: 20px 50px;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+    .btn-theme:hover {
+        color: var(--color-white)!important;
+        background-color: var(--color-dark);
+        text-decoration: none;
+    }
+
+    .btn-theme .btn-theme-left,
+    .btn-theme .btn-theme-right {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+    }
+    .btn-theme .btn-theme-left {
+        top: 10px;
+        left: 10px;
+        border-left: 1px solid var(--color-white);
+        border-top: 1px solid var(--color-white);
+    }
+    .btn-theme .btn-theme-right {
+        bottom: 10px;
+        right: 10px;
+        border-right: 1px solid var(--color-white);
+        border-bottom: 1px solid var(--color-white);
+    }

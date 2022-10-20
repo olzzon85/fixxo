@@ -4,8 +4,10 @@
 /* Section */
 @import "../src/assets/css/sections/_MainMenuSection.css";
 @import "../src/assets/css/sections/_FooterSection.css";
+@import "../src/assets/css/sections/_ProductGridSection.css";
 
 /* Cores */
 @import "../src/assets/css/cores/_Variables.css";
 @import "../src/assets/css/cores/_base.css";
+@import "../src/assets/css/cores/_buttons.css";
 @import "../src/assets/css/cores/_colors.css";

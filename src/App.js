@@ -12,6 +12,8 @@ import ShoppingCartView from './views/ShoppingCartView';
 import NotFoundView from './views/NotFoundView';
 import FooterSection from './sections/FooterSection';
 import MainMenuSection from './sections/MainMenuSection';
+import ProductDetailsView from './views/ProductDetailsView';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/" element={<HomeView />} />
         <Route path="/categories" element={<CategoriesView />} />
         <Route path="/products" element={<ProductsView />} />
+        <Route path="/products/:name" element={<ProductDetailsView />} />
         <Route path="/contacts" element={<ContactsView />} />
         <Route path="/search" element={<SearchView />} />
         <Route path="/compare" element={<CompareView />} />
