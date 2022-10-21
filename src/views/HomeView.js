@@ -2,6 +2,7 @@ import React, { useState} from 'react'
 import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 import ProductGridSection from '../sections/ProductGridSection'
+import ShowCaseSection from '../sections/ShowCaseSection'
 
 
 const HomeView = () => {
@@ -21,7 +22,10 @@ const [topProducts, setTopProducts] = useState([
 
   return (
     <>
+    <header>
       <MainMenuSection />
+      <ShowCaseSection />
+    </header>
       <ProductGridSection title="Featured Products" products={featuredProducts} />
       <ProductGridSection title="top Products" products={topProducts} />
       <FooterSection />
