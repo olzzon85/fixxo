@@ -4,8 +4,9 @@
 /* Section */
 @import "../src/assets/css/sections/_MainMenuSection.css";
 @import "../src/assets/css/sections/_ShowCaseSection.css";
-@import "../src/assets/css/sections/_FooterSection.css";
 @import "../src/assets/css/sections/_ProductGridSection.css";
+@import "../src/assets/css/sections/_CollabSection.css";
+@import "../src/assets/css/sections/_FooterSection.css";
 
 
 /* Cores */
