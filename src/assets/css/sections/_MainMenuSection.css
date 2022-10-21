@@ -54,7 +54,7 @@ header {
             margin-left: 20px;
             width: 36px;
             height: 36px;
-            box-shadow: 0 0 8px 2px var(--color-shadow);
+            box-shadow: 0 0 8px 4px var(--color-shadow);
             border-radius: 50%;
             display: flex;
             justify-content: center;
