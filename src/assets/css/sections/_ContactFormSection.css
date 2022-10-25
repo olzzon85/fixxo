@@ -23,7 +23,7 @@
             padding: 18px 20px;
             border: 1px solid var(--color-light-grey);
         }
-        
+
         .contact-form .container form .textarea {
             grid-column: 1 / -1;
         }
@@ -36,3 +36,17 @@
                 border: 1px solid var(--color-light-grey);
                 resize: none;
             }
+
+        .contact-form .container form .formBtn {
+            width: 250px;
+        }
+        .contact-form .container form .error {
+            color: var(--color-theme);
+            border: 1px solid var(--color-theme);
+        }
+        .contact-form .container form .errorMessage {
+            margin-top: 5px;
+            color: var(--color-theme);
+            font-size: 0.8em;
+
+        }
