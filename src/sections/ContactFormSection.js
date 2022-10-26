@@ -4,6 +4,9 @@ const ContactFormSection = () => {
     const [contactForm, setContactForm] = useState({name: '',email: '', comment: ''})
     const [formErrors, setFormErrors] = useState({})
     const [submitted, setSubmitted] = useState(false)
+    
+   
+    
 
     const validate = (values) => {
         const errors = {}
@@ -35,7 +38,7 @@ const ContactFormSection = () => {
     }
 
     const handleChange = (e) => {
-        const {id, value} =e.target
+        const {id, value} = e.target
         setContactForm({...contactForm, [id]: value})
     }
 
@@ -43,6 +46,12 @@ const ContactFormSection = () => {
         e.preventDefault()
         setFormErrors(validate(contactForm))
     }
+    const handleError = (e) => {
+        e.preventDefault()
+        setFormErrors(validate(contactForm))
+        
+    }
+    
 
 
 
@@ -60,15 +69,15 @@ const ContactFormSection = () => {
                             <h2>Come in Contact with Us</h2>
                             <form onSubmit={handleSubmit} noValidate>
                                 <div>
-                                    <input id="name" type="text" className="error" placeholder="Your Name" value={contactForm.name} onChange={handleChange} />
+                                    <input id="name" type="text" onKeyUp={handleError} placeholder="Your Name" value={contactForm.name} onChange={handleChange} />
                                     <div className="errorMessage">{formErrors.name}</div>
                                 </div>
                                 <div>
-                                    <input id="email" type="email" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} />
+                                    <input id="email" type="email" onKeyUp={handleError} placeholder="Your Mail" value={contactForm.email} onChange={handleChange} />
                                     <div className="errorMessage">{formErrors.email}</div>
                                 </div>
                                 <div className="textarea">
-                                    <textarea id="comment" placeholder="Comments" value={contactForm.comment} onChange={handleChange} ></textarea>
+                                    <textarea id="comment" onKeyUp={handleError} placeholder="Comments" value={contactForm.comment} onChange={handleChange} ></textarea>
                                     <div className="errorMessage">{formErrors.comment}</div>
                                 </div>
                                 <div className="formBtn">
