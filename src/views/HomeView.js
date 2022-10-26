@@ -5,6 +5,7 @@ import MainMenuSection from '../sections/MainMenuSection'
 import ProductGridSection from '../sections/ProductGridSection'
 import ShowCaseSection from '../sections/ShowCaseSection'
 import TopPicksSection from '../sections/TopPicksSection'
+import FlashsaleSection from '../sections/FlashsaleSection'
 
 
 const HomeView = () => {
@@ -26,6 +27,12 @@ const HomeView = () => {
     { id: 11, name: "Modern Black Blouse", category: "Fashion", price: "$35.00", rating: 5, img: "https://images.pexels.com/photos/157675/fashion-men-s-individuality-black-and-white-157675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"},
     { id: 12, name: "Modern Black Blouse", category: "Fashion", price: "$35.00", rating: 5, img: "https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
   ])
+  const [flashProducts, setFlashProducts] = useState([
+    { id: 13, name: "Modern Black Blouse", category: "Fashion", price: "$35.00", rating: 5, img: "https://images.pexels.com/photos/13379800/pexels-photo-13379800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"},
+    { id: 14, name: "Modern Black Blouse", category: "Fashion", price: "$35.00", rating: 5, img: "https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"},
+    { id: 15, name: "Modern Black Blouse", category: "Fashion", price: "$35.00", rating: 5, img: "https://images.pexels.com/photos/157675/fashion-men-s-individuality-black-and-white-157675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"},
+    { id: 16, name: "Modern Black Blouse", category: "Fashion", price: "$35.00", rating: 5, img: "https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
+  ])
 
   return (
     <>
@@ -34,9 +41,9 @@ const HomeView = () => {
       <ShowCaseSection />
     </header>
       <ProductGridSection title="Featured Products" products={featuredProducts} />
-      {/* <ProductGridSection title="top Products" products={topProducts} /> */}
       <CollabSection />
       <TopPicksSection title="top Products" products={topProducts} />
+      <FlashsaleSection title="" products={flashProducts} />
       <FooterSection />
     </>
   )

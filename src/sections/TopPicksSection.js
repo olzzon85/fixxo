@@ -8,10 +8,10 @@ const TopPicksSection = ({title, products}) => {
     <h1 className="hej">{title}</h1>
         <div className="container">
         
-            <div className="flashsales-box">
-                <div className="flashsales-body">
-                    <h1 className="flashsales-title">2 FOR USD $29</h1>
-                    <a className="flashsales btn-theme" href="#">
+            <div className="top-pick-box">
+                <div className="top-pick-body">
+                    <h1 className="top-pick-title">2 FOR USD $29</h1>
+                    <a className="top-pick btn-theme" href="#">
                         <span className="btn-theme-left"></span>
                         <span className="btn-theme-right"></span>
                         SHOP NOW

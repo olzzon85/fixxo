@@ -1,9 +1,3 @@
-/* .flashsales{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 60px;
-} */
 .productgrid {
     margin-bottom: 40px;
 }
@@ -20,35 +14,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    
-    
+       
 }
-.flashsales-box {
+.top-pick-box {
     background-color: var(--color-grey);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.flashsales .btn-theme {
+.top-pick .btn-theme {
     display: flex;
     justify-content: center;
     align-items: center;
         
 }
-.flashsales-title {
+.top-pick-title {
     font-size: 45px;
     font-weight: 600;
     color: var(--color-white);
     margin-bottom: 40px;
 }
 
-
-.flashsales-box .flashsales-body .flashsales .btn-theme {
-    /* text-align: center;
-    justify-content: center; */
-}
-.flashsales-body {
-    /* width: 50%; */
+.top-pick-body {
     text-align: center;
 }

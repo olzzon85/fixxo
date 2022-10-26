@@ -10,8 +10,6 @@ import CompareView from './views/CompareView';
 import WishListView from './views/WishListView';
 import ShoppingCartView from './views/ShoppingCartView';
 import NotFoundView from './views/NotFoundView';
-import FooterSection from './sections/FooterSection';
-import MainMenuSection from './sections/MainMenuSection';
 import ProductDetailsView from './views/ProductDetailsView';
 
 
@@ -29,8 +27,7 @@ function App() {
         <Route path="/wishlist" element={<WishListView />} />
         <Route path="/shoppingcart" element={<ShoppingCartView />} />
         <Route path="*" element={<NotFoundView />} />
-      </Routes>
-     
+      </Routes> 
     </BrowserRouter>
   );
 }
