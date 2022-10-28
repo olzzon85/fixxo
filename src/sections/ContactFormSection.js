@@ -4,8 +4,7 @@ const ContactFormSection = () => {
     const [contactForm, setContactForm] = useState({name: '',email: '', comment: ''})
     const [formErrors, setFormErrors] = useState({})
     const [submitted, setSubmitted] = useState(false)
-    
-   
+
     
 
     const validate = (values) => {
@@ -32,13 +31,14 @@ const ContactFormSection = () => {
             setSubmitted(true)
         else
             setSubmitted(false)
-
+            
         return errors;
 
     }
 
     const handleChange = (e) => {
         const {id, value} = e.target
+        e.preventDefault()
         setContactForm({...contactForm, [id]: value})
     }
 
@@ -46,11 +46,48 @@ const ContactFormSection = () => {
         e.preventDefault()
         setFormErrors(validate(contactForm))
     }
-    const handleError = (e) => {
-        e.preventDefault()
-        setFormErrors(validate(contactForm))
+
+// code from eric
+
+    const handleKeyUp = (e) => {
+        const id = e.target.id;
+        const value = e.target.value;
+        const error = {}
+
+        const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const regex_name = /(^[A-Z][A-Za-z]{1,30}$)/
+
+        // validation on handlekeyup with switch
         
+
+        switch (id) {
+            case `name`:
+                if(value.match(regex_name)) {
+                    e.target.classList.remove("errorMessege", "error")
+                    setFormErrors(error)
+                }else {
+                    error.name = "Your name must at least have 2 chars and start with a capital letter"
+                    e.target.classList.add("errorMessage", "error")
+                    setFormErrors(error)
+                }
+                break;
+
+            case 'email':
+                if (value.match(regex_email)){
+                    e.target.classList.remove("errorMessage", "error")
+                    setFormErrors(error)
+                }else{
+                    error.email = "You must enter a valid email address eg(name@domain.com)"
+                    e.target.classList.add("errorMessage", "error")
+                    setFormErrors(error)
+                }
+                break;
+                    default:
+                        break;
+        }
     }
+
+    
     
 
 
@@ -69,15 +106,15 @@ const ContactFormSection = () => {
                             <h2>Come in Contact with Us</h2>
                             <form onSubmit={handleSubmit} noValidate>
                                 <div>
-                                    <input id="name" type="text" onKeyUp={handleError} placeholder="Your Name" value={contactForm.name} onChange={handleChange} />
+                                    <input id="name" type="text" onKeyUp={handleKeyUp} placeholder="Your Name" value={contactForm.name} onChange={handleChange} />
                                     <div className="errorMessage">{formErrors.name}</div>
                                 </div>
                                 <div>
-                                    <input id="email" type="email" onKeyUp={handleError} placeholder="Your Mail" value={contactForm.email} onChange={handleChange} />
+                                    <input id="email" type="email" onKeyUp={handleKeyUp} placeholder="Your Mail" value={contactForm.email} onChange={handleChange} />
                                     <div className="errorMessage">{formErrors.email}</div>
                                 </div>
                                 <div className="textarea">
-                                    <textarea id="comment" onKeyUp={handleError} placeholder="Comments" value={contactForm.comment} onChange={handleChange} ></textarea>
+                                    <textarea id="comment" onKeyUp={handleKeyUp} placeholder="Comments" value={contactForm.comment} onChange={handleChange} ></textarea>
                                     <div className="errorMessage">{formErrors.comment}</div>
                                 </div>
                                 <div className="formBtn">
