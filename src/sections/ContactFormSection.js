@@ -1,132 +1,84 @@
 import React, { useState } from 'react'
+import { validate } from '../assets/scripts/validation'
 
-const ContactFormSection = () => {
-    const [contactForm, setContactForm] = useState({name: '',email: '', comment: ''})
-    const [formErrors, setFormErrors] = useState({})
-    const [submitted, setSubmitted] = useState(false)
+const ContactForm = () => {
+  let currentPage = "Contact Us"
+  window.top.document.title = `${currentPage} || Fixxo` 
 
-    
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [comments, setComments] = useState('')
+  const [errors, setErrors] = useState({})
+  const [submitted, setSubmitted] = useState(false)
 
-    const validate = (values) => {
-        const errors = {}
-        const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const handleChange = (e) => {
+    const {id, value} = e.target
 
-        if(!values.name)
-            errors.name = "You must enter a name"
-        else if(values.name.length < 2)
-            errors.name = "Your name must be atlest two characters"
-
-        if(!values.email)
-            errors.email = "You must enter an e-mail address"
-        else if(!regex_email.test(values.email))
-            errors.email = "You must enter a valid e-mail address (eg. name@domain.com)"
-
-        if(!values.comment)
-            errors.comment = "You must enter a comment"
-        else if(values.comment.length < 5)
-            errors.comment = "Your comment must be atlest five characters"
-
-
-        if(Object.keys(errors).length === 0)
-            setSubmitted(true)
-        else
-            setSubmitted(false)
-            
-        return errors;
-
+    switch(id) {
+      case 'name':
+        setName(value)
+        break
+      case 'email':
+        setEmail(value)
+        break
+      case 'comments':
+        setComments(value)
+        break
     }
 
-    const handleChange = (e) => {
-        const {id, value} = e.target
-        e.preventDefault()
-        setContactForm({...contactForm, [id]: value})
+    setErrors({...errors, [id]: validate(e)})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setErrors(validate(e, {name, email, comments}))
+  
+    if (errors.name === null && errors.email === null && errors.comments === null) {
+      setSubmitted(true)
+      setName('')
+      setEmail('')
+      setComments('')
+      setErrors({})
+    } else {
+      setSubmitted(false)
     }
+  }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setFormErrors(validate(contactForm))
-    }
 
-// code from eric
-
-    const handleKeyUp = (e) => {
-        const id = e.target.id;
-        const value = e.target.value;
-        const error = {}
-
-        const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        const regex_name = /(^[A-Z][A-Za-z]{1,30}$)/
-
-        // validation on handlekeyup with switch
+  return (
+    <section className="contact-form mt-5">
+      <div className="container">
         
-
-        switch (id) {
-            case `name`:
-                if(value.match(regex_name)) {
-                    e.target.classList.remove("errorMessege", "error")
-                    setFormErrors(error)
-                }else {
-                    error.name = "Your name must at least have 2 chars and start with a capital letter"
-                    e.target.classList.add("errorMessage", "error")
-                    setFormErrors(error)
-                }
-                break;
-
-            case 'email':
-                if (value.match(regex_email)){
-                    e.target.classList.remove("errorMessage", "error")
-                    setFormErrors(error)
-                }else{
-                    error.email = "You must enter a valid email address eg(name@domain.com)"
-                    e.target.classList.add("errorMessage", "error")
-                    setFormErrors(error)
-                }
-                break;
-                    default:
-                        break;
+        {
+          submitted ? (
+          <div className="alert alert-success text-center mb-5" role="alert">
+            <h3>Thank you for your comments</h3> 
+            <p>We will contact you as soon as possible.</p>
+            </div>  ) : (<></>)
         }
-    }
-
-    
-    
-
-
-
-    return (
-        <section className="contact-form">
-            <div className="container">
-                {
-                    submitted ? 
-                    (<div className="d-flex justify-content-center align-items-center">
-                        <div>Thank you for your comment!</div>
-                    </div>)
-                    :
-                    (
-                        <>
-                            <h2>Come in Contact with Us</h2>
-                            <form onSubmit={handleSubmit} noValidate>
-                                <div>
-                                    <input id="name" type="text" onKeyUp={handleKeyUp} placeholder="Your Name" value={contactForm.name} onChange={handleChange} />
-                                    <div className="errorMessage">{formErrors.name}</div>
-                                </div>
-                                <div>
-                                    <input id="email" type="email" onKeyUp={handleKeyUp} placeholder="Your Mail" value={contactForm.email} onChange={handleChange} />
-                                    <div className="errorMessage">{formErrors.email}</div>
-                                </div>
-                                <div className="textarea">
-                                    <textarea id="comment" onKeyUp={handleKeyUp} placeholder="Comments" value={contactForm.comment} onChange={handleChange} ></textarea>
-                                    <div className="errorMessage">{formErrors.comment}</div>
-                                </div>
-                                <div className="formBtn">
-                                    <button title="submit" className="btn-theme">Post Comments</button>
-                                </div>
-                            </form>
-                       </> 
-                    )
-                }
-            </div>
-        </section>
-    )
+        
+        
+        <h2>Come in Contact with Us</h2>
+        <form onSubmit={handleSubmit} noValidate>
+          <div>
+            <input id="name" className={(errors.name ? 'error': '')} value={name} onChange={handleChange} type="text" placeholder="Your Name" />
+            <div className="errorMessage">{errors.name}</div>
+          </div>
+          <div>
+            <input id="email" className={(errors.email ? 'error': '')} value={email} onChange={handleChange} type="email" placeholder="Your Mail" />
+            <div className="errorMessage">{errors.email}</div>
+          </div>
+          <div className="textarea">
+            <textarea id="comments" className={(errors.comments ? 'error': '')} style={(errors.comments ? {border: '1px solid #FF7373'}: {} )} value={comments} onChange={handleChange} placeholder="Comments"></textarea>
+            <div className="errorMessage">{errors.comments}</div>
+          </div>
+          <div className="formBtn">
+            <button type="submit" className="btn-theme">Post Comments</button>
+          </div>
+        </form>    
+      </div>
+    </section>
+  )
 }
 
-export default ContactFormSection
+export default ContactForm
