@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { validate } from '../assets/scripts/validation'
+import { submitData, validate } from '../assets/scripts/validation'
 
 const ContactForm = () => {
   let currentPage = "Contact Us"
@@ -10,10 +10,10 @@ const ContactForm = () => {
   const [comments, setComments] = useState('')
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [failedSubmit, setFailedSubmit] = useState(false)
 
   const handleChange = (e) => {
     const {id, value} = e.target
-
     switch(id) {
       case 'name':
         setName(value)
@@ -29,20 +29,37 @@ const ContactForm = () => {
     setErrors({...errors, [id]: validate(e)})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setErrors(validate(e, {name, email, comments}))
+    setFailedSubmit(false)
+    setSubmitted(false)
+
+    setErrors(validate(e, { name, email, comments }))
   
     if (errors.name === null && errors.email === null && errors.comments === null) {
-      setSubmitted(true)
-      setName('')
-      setEmail('')
-      setComments('')
-      setErrors({})
+        
+        let json = JSON.stringify({ name, email, comments })
+        
+        setName('')
+        setEmail('')
+        setComments('')
+        setErrors({})
+
+       if(await submitData('https://win-22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
+        setSubmitted(true)
+        setFailedSubmit(false)
+       }else {
+        setSubmitted(false)
+        setFailedSubmit(true)
+       }
+
+    
     } else {
-      setSubmitted(false)
+        setSubmitted(false)
     }
   }
+
+  
 
 
   return (
@@ -54,6 +71,14 @@ const ContactForm = () => {
           <div className="alert alert-success text-center mb-5" role="alert">
             <h3>Thank you for your comments</h3> 
             <p>We will contact you as soon as possible.</p>
+            </div>  ) : (<></>)
+        }
+
+        {
+          failedSubmit ? (
+          <div className="alert alert-danger text-center mb-5" role="alert">
+            <h3>Something went wrong!</h3> 
+            <p>We couldn't submit your comments right now.</p>
             </div>  ) : (<></>)
         }
         
