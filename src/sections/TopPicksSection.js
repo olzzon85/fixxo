@@ -20,7 +20,7 @@ const TopPicksSection = ({title, products}) => {
             </div>
             <div className="row row-cols-1 row-cols-md-2 g-4"> 
                 {
-                    products.map(product => <ProductCard key={product.id} product={product} />)
+                    products.map(product => <ProductCard key={product.articleNumber} product={product} />)
                 } 
             </div>
         </div>

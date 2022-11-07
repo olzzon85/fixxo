@@ -45,7 +45,7 @@ const ContactForm = () => {
         setComments('')
         setErrors({})
 
-       if(await submitData('https://win-22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
+       if(await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
         setSubmitted(true)
         setFailedSubmit(false)
        }else {

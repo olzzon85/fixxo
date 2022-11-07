@@ -8,8 +8,9 @@ export const submitData = async (url, method, data, contentType = 'application/j
         },
         body: data
     }) 
-    if (res.status === 200) 
+    if (res.status === 200) {
         return true
+    }
          
     return false   
     
