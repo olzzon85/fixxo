@@ -1,4 +1,5 @@
 import React from 'react'
+// imoprting ExtarnalLinks as a component
 import ExtarnalLinkIcon from '../components/ExtarnalLinkIcon'
 
 const FooterSection = () => {

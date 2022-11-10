@@ -1,41 +1,32 @@
+/* CSS for Top-picksection */
+
 .productgrid {
     margin-bottom: 40px;
 }
-    .productgrid .hej {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        margin-bottom: 40px;
-        font-size: 20px;
+    .productgrid .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;      
     }
-
-.productgrid .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-       
-}
-.top-pick-box {
-    background-color: var(--color-grey);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.top-pick .btn-theme {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-        
-}
-.top-pick-title {
-    font-size: 45px;
-    font-weight: 600;
-    color: var(--color-white);
-    margin-bottom: 40px;
-}
-
-.top-pick-body {
-    text-align: center;
-}
+        .top-pick-box {
+            background-color: var(--color-grey);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+            .top-pick-box .top-pick-body {
+                text-align: center;
+            }
+                .top-pick-box .top-pick-body .top-pick-title {
+                    font-size: 45px;
+                    font-weight: 600;
+                    color: var(--color-white);
+                    margin-bottom: 40px;
+                } 
+                .top-pick-box .top-pick-body .top-pick .btn-theme {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                        
+                }

@@ -1,13 +1,14 @@
 import React from 'react'
+// Importing productcard-component
 import ProductCard from '../components/ProductCard'
-
-const TopPicksSection = ({title, products}) => {
+// using prop(products) from app.js 
+const TopPicksSection = ({products}) => {
   return (
 
+// Structure for top-pick-section and using the component productcard
+
     <section className="productgrid"> 
-    <h1 className="hej">{title}</h1>
         <div className="container">
-        
             <div className="top-pick-box">
                 <div className="top-pick-body">
                     <h1 className="top-pick-title">2 FOR USD $29</h1>

@@ -1,3 +1,5 @@
+// Copy structure from Hans
+
 import React from 'react'
 
 const MapSection = () => {

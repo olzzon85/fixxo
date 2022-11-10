@@ -1,3 +1,5 @@
+// Copy by Hans
+
 import React from 'react'
 
 const ProductDetails = ({product}) => {

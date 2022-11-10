@@ -1,3 +1,5 @@
+// Import useState so we can track and state variables in a function
+
 import React, { useState } from 'react'
 import { submitData, validate } from '../assets/scripts/validation'
 
@@ -12,6 +14,7 @@ const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false)
   const [failedSubmit, setFailedSubmit] = useState(false)
 
+// use oneChange to validate the form "live" by pressing the keybordkeys
   const handleChange = (e) => {
     const {id, value} = e.target
     switch(id) {
@@ -28,7 +31,7 @@ const ContactForm = () => {
 
     setErrors({...errors, [id]: validate(e)})
   }
-
+// validation for handlesubmit, is false as long as name, email and comments dont forfill the criterias. if they forfill it gets true and be submittet
   const handleSubmit = async (e) => {
     e.preventDefault()
     setFailedSubmit(false)
@@ -45,27 +48,26 @@ const ContactForm = () => {
         setComments('')
         setErrors({})
 
+// if all is true, api will post
        if(await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
         setSubmitted(true)
         setFailedSubmit(false)
+// else error message will print
        }else {
         setSubmitted(false)
         setFailedSubmit(true)
-       }
-
-    
+       }   
     } else {
         setSubmitted(false)
     }
   }
 
-  
-
-
   return (
     <section className="contact-form mt-5">
       <div className="container">
-        
+
+        {/* message if you have fill in the form correct */}
+
         {
           submitted ? (
           <div className="alert alert-success text-center mb-5" role="alert">
@@ -73,6 +75,8 @@ const ContactForm = () => {
             <p>We will contact you as soon as possible.</p>
             </div>  ) : (<></>)
         }
+
+       {/* message if something went wrong */}
 
         {
           failedSubmit ? (
@@ -82,6 +86,7 @@ const ContactForm = () => {
             </div>  ) : (<></>)
         }
         
+        {/* The contact form */}
         
         <h2>Come in Contact with Us</h2>
         <form onSubmit={handleSubmit} noValidate>

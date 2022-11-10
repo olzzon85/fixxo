@@ -1,10 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+// importing Menuicon as a component
 import MenuIcon from '../components/MenuIcon'
 
 
 const MainMenuSection = () => {
   return (
+    // Structure for main-menu
+    
     <nav className="mainmenu container">
         <NavLink className="logo" to="/" end>
           Fixxo.

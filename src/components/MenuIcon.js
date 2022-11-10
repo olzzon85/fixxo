@@ -1,3 +1,5 @@
+// A component for menu-icons, copy from Hans
+
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 

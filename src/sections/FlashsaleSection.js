@@ -1,8 +1,12 @@
 import React from 'react'
 import ProductCard from '../components/ProductCard'
 
+// using prop(products) from app.js
 const FlashsaleSection = ({products}) => {
   return (
+    
+// Structure for flashsale-section and using the component productcard
+
     <section className="flashgrid"> 
         <div className="container">
             <div className="row row-cols-1 row-cols-md-2 g-4"> 
@@ -19,8 +23,7 @@ const FlashsaleSection = ({products}) => {
                         SHOP NOW
                     </a>
                 </div>
-            </div>
-            
+            </div>  
         </div>
     </section>
   )

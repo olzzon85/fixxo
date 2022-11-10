@@ -1,9 +1,12 @@
 import React from 'react'
+// Importing two pictures
 import images1 from '../assets/images/img-1.svg'
 import images2 from '../assets/images/img-2.svg'
 
 const ShowCaseSection = () => {
   return (
+    // Showcase-section
+    
     <section className="showcase container">
         <img src={images1} className="img-left" alt="showcase-img-1"/>
         <div className="showcase-body">

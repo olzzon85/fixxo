@@ -1,6 +1,7 @@
+// Validation for contact-form, copy from Hans
+
 export const submitData = async (url, method, data, contentType = 'application/json' ) => {
-    
-    
+    // Function for validate thru api
     const res = await fetch(url, {
         method: method, 
         headers: {
@@ -16,7 +17,7 @@ export const submitData = async (url, method, data, contentType = 'application/j
     
 }
 
-
+// Function for validate submitbutton
 
 export const validate = (e, form = null) => {
     if (e.type === 'submit') {
@@ -39,7 +40,7 @@ export const validate = (e, form = null) => {
     }
  }
  
- 
+//  Function for validate name
  const validate_name = (value) => {
      if (!value)
          return 'A name is required'
@@ -48,7 +49,7 @@ export const validate = (e, form = null) => {
      else
          return null
  }
- 
+ //  Function for validate email and use regex so it must be a valid email
  const validate_email = (value) => {
      const regex_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
      
@@ -59,7 +60,7 @@ export const validate = (e, form = null) => {
      else
          return null
  }
- 
+ //  Function for validate comments
  const validate_comments = (value) => {
      if (!value)
          return 'A comment is required'

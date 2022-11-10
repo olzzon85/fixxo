@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom'
 
 
 const ProductCard = ({product}) => {
-
+// beginning of a function for adding to wishlist, compare and cart. copy from Hans
     const addToWishList = (e) => {
     }
     const addToCompare = (e) => {
     }
     const addToCart = (e) => {
     }
+    // Structure for all cards.
   return (
     <div className="col">
         <div className="card">

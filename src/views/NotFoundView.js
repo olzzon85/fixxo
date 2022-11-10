@@ -1,7 +1,9 @@
 import React from 'react'
+// Impoprting sections below
 import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 
+// page for 404, copy from Hans
 const NotFoundView = () => {
   return (
     <>

@@ -1,34 +1,32 @@
+/* CSS for flashsalesection*/
+
 .flashgrid {
     margin-bottom: 40px;
 }
-
-.flashgrid .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;   
-}
-
-.flashsales-box {
-    background-color: var(--color-grey);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-    .flashsales-box .flashsales-body {
-        /* width: 50%; */
-        text-align: center;
+    .flashgrid .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;   
     }
-        .flashsales-box .flashsales-body .flashsales-title {
-            font-size: 45px;
-            font-weight: 600;
-            color: var(--color-white);
-            margin-bottom: 40px;
+        .flashsales-box {
+            background-color: var(--color-grey);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-.flashsales .btn-theme {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-        
-}
+            .flashsales-box .flashsales-body {
+                text-align: center;
+            }
+                .flashsales-box .flashsales-body .flashsales-title {
+                    font-size: 45px;
+                    font-weight: 600;
+                    color: var(--color-white);
+                    margin-bottom: 40px;
+                }
+                .flashsales .btn-theme {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;     
+                }
 

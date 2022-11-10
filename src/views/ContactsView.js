@@ -1,4 +1,5 @@
 import React from 'react'
+// Impoprting all sections below
 import BreadcrumbSection from '../sections/BreadcrumbSection'
 import ContactFormSection from '../sections/ContactFormSection'
 import FooterSection from '../sections/FooterSection'
